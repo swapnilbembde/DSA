@@ -38,12 +38,27 @@ int main(){
     if(sum>=n){
         selection_sort(arr1,n);
         selection_sort(arr2,k);
-        for(int i =n-1; i>n-k-1;i--){
-            out+=arr1[i];
-           
+        int keys = n/k;
+        int len=0;
+        for(int t=1;t<keys+2;t++){
+        //cout<<"top"<<len<<endl;    
+            for(int i =n-(t-1)*(k-len)-1; i>max(n-t*(k-len)-1,-1);i--){
+                out = out + t*arr1[i];
+            }
+            
+            //int len=0;
+            len =0;
+            for(int j=0;j<k;j++){
+                arr2[j]-=1;
+                if(arr2[j]<=0){
+                    len++;
+                }
+            }
+        //cout<<len<<endl;
         }
-        
-        cout<<out;}
+        cout<<out;
+            
+    }
     else{
         cout<<"-1";
     }    
