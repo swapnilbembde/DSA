@@ -24,6 +24,31 @@ void merge(int arr[],int start, int mid,int end){
         arr[start++] = temp[i];
     }
     
+void merge_while(int arr[],int start, int mid,int end){
+    int p = start, q = mid+1;
+    int temp[end-start+1];
+    int k = 0;
+    
+    while(p<=mid && q<=end){
+        if(arr[p]<=arr[q])
+            temp[k++] = arr[p++];
+        else{
+            count++;
+            temp[k++] = arr[q++];
+        }
+    }
+    while(p<=mid){
+        temp[k++] = arr[p++];
+        count++;
+    }
+    while(q<=end)
+    temp[k++] = arr[q++];
+    for(int i =0; i<k;i++){
+        arr[start++] = temp[i];
+    }
+}
+    
+    
 }
 void merge_sort(int arr[],int start,int end){
     
