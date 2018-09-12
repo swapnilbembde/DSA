@@ -15,6 +15,11 @@ long int partition(long int arr[],long int start,long int end){
     return i-1;
 }
 
+long int random_part(long int arr[],long int start, long int end){
+    long int random = start + rand()%(end-start +1);
+    swap(arr[start],arr[random]);
+    return partition(arr,start,end);
+
 void quick_sort(long int arr[],long int start,long int end){
     if(start<end){
         long int piv_pos = partition(arr,start,end);
