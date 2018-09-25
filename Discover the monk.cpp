@@ -30,7 +30,7 @@ void merge_sort(long int arr[],int start,int end){
     int mid = (start + end)/2;
     merge_sort(arr,start,mid);
     merge_sort(arr,mid+1,end);
-    merge(arr,start,mid,end);
+    merge(arr,start,end,mid);
     }
     
 }
@@ -60,9 +60,7 @@ int main(){
         cin>>arr[i];
     }
     merge_sort(arr,0,n-1);
-    for (int i = 0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
+  
     while(q--){
         cin>>x;
         cout<<binary_search(arr,0,n-1,x)<<endl;
