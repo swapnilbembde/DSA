@@ -67,3 +67,34 @@ int main(){
     }
         
 }
+
+\\ Alternate solution using vector and in built sort and search works in c++ as well as in c++14
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n,q;
+    //cin>>n>>q;
+    scanf("%d %d\n",&n,&q);
+    //cout<<n<<endl;
+    vector <int> arr;
+    int temp;
+    for (int i = 0;i<n;i++){
+        cin>>temp;
+        arr.push_back(temp);
+    }
+    sort(arr.begin(),arr.end());
+    int x;
+    for(auto i =arr.begin();i!=arr.end();++i){
+        cout<<*i<<" ";
+    }
+
+    while(q--){
+        scanf("%d",&x);
+        if(binary_search(arr.begin(),arr.end(),x))
+        cout<<"YES\n";
+        else
+        cout<<"NO\n";
+    }
+        
+}
