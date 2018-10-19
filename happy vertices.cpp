@@ -4,13 +4,17 @@ using namespace std;
 int happy=0;
 vector <int> adj [100001];
 int vis[100001] ={0};
-
+bool root= true;
 void dfs(int s){
     vis[s] = 1;
-    // cout<<s<<endl;
+    int pchild;
+    if(root)
+    {pchild =adj[s].size();root=false;}
+    else pchild = adj[s].size() -1;
     for(int i=0;i<adj[s].size();++i){
+    
         if(vis[adj[s][i]] ==0){
-            if(adj[adj[s][i]].size()>adj[s].size())
+            if(adj[adj[s][i]].size()-1>pchild)
                 happy++;
             dfs(adj[s][i]);
             
@@ -32,7 +36,7 @@ int main(){
     for(int i=1;i<=n;++i){
         if(vis[i]==0)
         dfs(i);
-    
+        root =true;
     }
     cout<<happy;
     
